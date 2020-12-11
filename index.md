@@ -1,37 +1,45 @@
-## Project
+# TDI CAPSTONE PROJECT 
 
-You can use the [editor on GitHub](https://github.com/hommood-alrowais/hommood-alrowais.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Aotmating Road maintenance using Google Street View Images to Detect Potholes
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+By Hommood Alrowais
 
-### Markdown
+## Project Description:
+The City of Toronro is responsible for the operation and maintenance of 5600 kilometers of public roads, trails and their sidewalks. The City of Toronto's Transportation Services each summer sends 16 technical trainees to manually analyze the quality of sidewalks. This operation is done by foot, and notes are taken by pen and paper. This only covers a small area of the city each year. In addition, due to the current pandemic, there were fewer trainess due to hiring freezes. I proposed automating the process of data collection and analysis to allow the trainess to cover more area with fewer staff hours. These repairs are neecessary as Toronto is obliged to be in compliance of the Accessibility for Ontarians with Disabilities Act (AODA) to allow fair, safe and equitable access of the public realm to those with disabilities independently.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+As a proof of concept of automated infrastructure maintenance, and an attempt at a minimal viable product, I shifted my automated data collection to the 40 kilometers of cycling tracks that were installed this past summer. Due to the rapid implementation of the project, the road quality is poor for cycling and is riddled with potholes. Since 2005, Google has collected images of the streets all across the globe, including Toronto. These Google Street View images can be analyzed using machine learning algorithms to detect potholes and allow the city to respond in a timely fashion.
 
-```markdown
-Syntax highlighted code block
+The goal of this prototype to persuade the City Council to fund higher quality detection mechanisms and more frequent data collection. These detection mechanisms can include 3D spatial images using LIDAR cameras installed on bicycles. These can be used to properly train and properly label images of potholes for image detection and classification machine learning algortihms. Prior usefulness has been proven Iowa's Departnment of Natural Resources Data bike [url]. The bikes used cameras and accelerometers to detect the quality of trails arounds Iowa. I believe that with higher quality LIDAR data we can achieve more fidelity in detection, and need less human involvement in the loop. 
 
-# Header 1
-## Header 2
-### Header 3
+The project would collect Google Street View images from a desired neighborhood. The collected images would be analyzed using a pothole detection algorithm. The results would be analyzed and and validated by comparing the results to a database of citizen-reported potholes in the same neighborhood. 
 
-- Bulleted
-- List
+The project was developed in Python using Jupyter Notebooks and PyCharm IDE.
 
-1. Numbered
-2. List
+## Methodology and Tools Used
+### Data Ingestion:
+Image collection: Images were downloaded using Google Street View API. The image collected were 640x640 pixels. Care was taken to ensure proper alignment with street direction, camera angles and depth of view. 
 
-**Bold** and _Italic_ and `Code` text
+Validation Data: The location, reporting date, and status of potholes is collected using Open Data Toronto's API. The API had been suspended in March of 2020. I worked on a subset of data previously collected. 
 
-[Link](url) and ![Image](src)
-```
+Labeled data: Training, validation, and testing images were collected from the internet. Images were manually labeled using LabelImg tool. The annotation and image were converted into an XML document in the Pascal VOC format. The generated files were converted to CSV files. For a TensorFlow-friendly ingestion, the files were converted TFrecord files. To augment the data, pre-labeled pothole images were used from Roboflow and downloaded in TFRecord format.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Machine Learning Model:
+In order to detet potholes in images, we will use transfer learning to attempt to achieve high quality results with less training time. The model uses TensorFlow 2 and Keras as a framework. The chosen model from the Object Detection API model zoo was the SSD MobileNet V2. The model has fast inference time of ~20 ms.
 
-### Jekyll Themes
+The model's learning rate and batch size were optimized. The chosen parameter were a batch size of 1 and a learning rate of 0.00133. This allowed the model to run on the local computer. 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hommood-alrowais/hommood-alrowais.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Preliminary Results:
+### Visualiztion:
+After training, the generated Total graph is below. 
 
-### Support or Contact
+As we can see, the validation total loss is higher than the training total loss. Based on this results we can tell that the model is overfitting.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Here is the generated inference for a model vs. the expected output. 
+
+
+### Conclusions:
+Image collection and machine learning have been completed. 
+
+Unfortunately, tthe mAP (mean Average Precision) was caluated for the detection box to be . 
+
+This attempt at using Google Street View as a quick-and-dirty method for data collection proved to be unsuccessful. This motivates using more accurate ML models, but most importantly using higher quality data collection methods using LIDAR cameras with better labeling techniques.
