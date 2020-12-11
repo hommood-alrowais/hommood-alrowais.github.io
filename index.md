@@ -30,13 +30,13 @@ The model's learning rate and batch size were optimized. The chosen parameters w
 
 ## Preliminary Results:
 ### Visualization:
-After training, the generated Total graph is below. 
-![Total Loss](https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/tensorboard_total_loss.png)
+After training, the generated Total Loss graph is below. 
+![Total Loss](https://github.com/hommood-alrowais/hommood-alrowais.github.io/raw/main/tensorboard_total_loss.png)
 As we can see, the validation total loss is higher than the training total loss. Based on these results we can tell that the model is overfitting.
 
 Here is the generated inference for a model vs. the expected output. 
 
-![output](https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/output_inference_image.png)  vs. <img src="https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/expected_output_inference_image.png" width="250"/>
+![output](https://github.com/hommood-alrowais/hommood-alrowais.github.io/raw/main/output_inference_image.png)  vs. <img src="https://github.com/hommood-alrowais/hommood-alrowais.github.io/raw/main/expected_output_inference_image.png" width="250"/>
 
 ### Conclusions:
 Image collection and machine learning have been completed. 
