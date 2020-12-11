@@ -31,7 +31,7 @@ The model's learning rate and batch size were optimized. The chosen parameters w
 ## Preliminary Results:
 ### Visualization:
 After training, the generated Total graph is below. 
-
+![Total Loss](https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/tensorboard_total_loss.png)
 As we can see, the validation total loss is higher than the training total loss. Based on these results we can tell that the model is overfitting.
 
 Here is the generated inference for a model vs. the expected output. 
