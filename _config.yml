@@ -2,3 +2,14 @@ theme: jekyll-theme-cayman
 title: Hommood Alrowais's Capstone Project
 Description: A brief overview of my attempt to automate pothole detection using Google StreetView
 
+# Your name to show in the footer
+author: Hommood Alrowais
+
+# --- List of links in the navigation bar --- #
+
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://google.com"
