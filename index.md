@@ -36,10 +36,11 @@ As we can see, the validation total loss is higher than the training total loss.
 
 Here is the generated inference for a model vs. the expected output. 
 
+![output](https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/output_inference_image.png)  vs. <img src="https://github.com/hommood-alrowais/hommood-alrowais.github.io/blob/main/expected_output_inference_image.png" width="250"/>
 
 ### Conclusions:
 Image collection and machine learning have been completed. 
 
-Unfortunately, the mAP (mean Average Precision) was calculated for the detection box to be. 
+Unfortunately, the mAP (mean Average Precision) was calculated for the detection box to be 0.03. 
 
 This attempt at using Google Street View as a quick-and-dirty method for data collection proved to be unsuccessful. This motivates using more accurate ML models but most importantly using higher quality data collection methods using LIDAR cameras with better labeling techniques.
